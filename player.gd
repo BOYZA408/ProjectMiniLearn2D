@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 	print('test::',velocity)
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		print('test::2',$AnimatedSprite2D)
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
@@ -41,10 +40,10 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 		
-	#if velocity.x < 0:
-		#$AnimatedSprite2D.flip_h = true
-	#else:
-		#$AnimatedSprite2D.flip_h = false
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 
 
 func _on_body_entered(body: Node2D) -> void:
