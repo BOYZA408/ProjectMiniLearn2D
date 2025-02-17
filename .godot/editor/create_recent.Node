@@ -1,5 +1,8 @@
+Timer
+Button
+Label
+CanvasLayer
 PathFollow2D
 Path2D
 Marker2D
-Timer
 Node
