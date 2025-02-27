@@ -52,8 +52,11 @@ func _on_mob_timer_timeout() -> void:
 func _on_score_timer_timeout() -> void:
 	score += 1
 
-
 func _on_start_timer_timeout() -> void:
 	print('_on_start_timer_timeout')
 	$MobTimer.start()
 	$ScoreTimer.start()
+
+
+func _on_hud_start_game() -> void:
+	pass # Replace with function body.
