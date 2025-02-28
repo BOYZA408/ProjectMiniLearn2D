@@ -15,8 +15,6 @@ point_count = 5
 script = ExtResource("1_3bc4t")
 mob_scene = ExtResource("2_pot64")
 
-[node name="Player" parent="." instance=ExtResource("1_he75l")]
-
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 
@@ -25,6 +23,8 @@ wait_time = 0.5
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("1_he75l")]
 
 [node name="StartPosition" type="Marker2D" parent="."]
 
@@ -35,7 +35,7 @@ curve = SubResource("Curve2D_ursdn")
 
 [node name="HUD" parent="." instance=ExtResource("4_uvtsi")]
 
-[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
