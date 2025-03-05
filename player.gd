@@ -5,7 +5,7 @@ var screen_size # Size of the game window.
 signal hit
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#hide()
+	hide()
 	pass
 
 
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
-	print('test::',velocity)
+		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
@@ -47,13 +47,15 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	#hide() # Player disappears after being hit.
-	#hit.emit()
-	## Must be deferred as we can't change physics properties on a physics callback.
-	#$CollisionShape2D.set_deferred("disabled", true)
+	print('_on_body_entered')
+	hide() # Player disappears after being hit.
+	hit.emit()
+	# Must be deferred as we can't change physics properties on a physics callback.
+	$CollisionShape2D.set_deferred("disabled", true)
 	pass
 
 func start(pos):
+	print('start player',pos)
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
