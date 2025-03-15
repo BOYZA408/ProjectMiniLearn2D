@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds86dilqlow7n"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_oolup"]
+[ext_resource type="Script" uid="uid://bd012ut0ok1va" path="res://hud.gd" id="1_oolup"]
 [ext_resource type="FontFile" uid="uid://ce1353wb1ps3h" path="res://fonts/Xolonium-Regular.ttf" id="1_wyi2a"]
 
 [node name="HUD" type="CanvasLayer"]

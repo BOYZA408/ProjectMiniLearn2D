@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	print('_on_body_entered')
 	hide() # Player disappears after being hit.
 	hit.emit()

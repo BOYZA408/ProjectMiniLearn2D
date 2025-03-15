@@ -15,6 +15,8 @@ point_count = 5
 script = ExtResource("1_3bc4t")
 mob_scene = ExtResource("2_pot64")
 
+[node name="HUD" parent="." instance=ExtResource("4_uvtsi")]
+
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
@@ -34,10 +36,8 @@ curve = SubResource("Curve2D_ursdn")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
-[node name="HUD" parent="." instance=ExtResource("4_uvtsi")]
-
+[connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
